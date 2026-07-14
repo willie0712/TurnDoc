@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TurnDoc 啟動中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            text-align: center;
+            padding: 30px;
+            user-select: none;
+        }
+
+        .logo {
+            font-size: 56px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #e74c3c;
+        }
+
+        .title span {
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        .loading-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .loading-text {
+            font-size: 15px;
+            color: #495057;
+            font-weight: 500;
+            min-height: 24px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e9ecef;
+            border-top: 4px solid #e74c3c;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .dots::after {
+            content: '';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+            100% { content: ''; }
+        }
+
+        .version {
+            font-size: 12px;
+            color: #b0b0b0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <span class="logo">🔄</span>
+        <div class="title">Turn<span>Doc</span></div>
+        <div class="subtitle">文件轉換工具</div>
+
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <div class="loading-text" id="loadingText">
+                載入中<span class="dots">...</span>
+            </div>
+        </div>
+
+        <div class="version">v1.0.0</div>
+    </div>
+
+    <script>
+        const loadingText = document.getElementById('loadingText');
+        const messages = [
+            '載入中<span class="dots">...</span>',
+            '初始化轉換引擎<span class="dots">...</span>',
+            '準備就緒<span class="dots">...</span>'
+        ];
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % messages.length;
+            loadingText.innerHTML = messages[index];
+        }, 1500);
+    </script>
+</body>
+</html>

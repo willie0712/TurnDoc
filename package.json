@@ -1,0 +1,56 @@
+{
+  "name": "turndoc",
+  "version": "1.0.0",
+  "description": "TurnDoc 文件轉換工具 - 桌面版",
+  "author": "Willie Zhang",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.turndoc.app",
+    "productName": "TurnDoc",
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "deleteAppDataOnUninstall": true,
+      "runAfterFinish": true
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!build",
+      "!dist",
+      "converter.py",
+      "icon.ico"
+    ],
+    "extraResources": [
+      {
+        "from": "converter.py",
+        "to": "converter.py"
+      },
+      {
+        "from": "icon.ico",
+        "to": "icon.ico"
+      }
+    ]
+  }
+}

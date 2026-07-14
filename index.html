@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TurnDoc 桌面版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+            color: #2c3e50;
+            padding: 24px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .title-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+
+        .title-bar .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e74c3c;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .title-bar .logo span {
+            color: #2c3e50;
+        }
+
+        .title-bar .version {
+            font-size: 12px;
+            color: #7f8c8d;
+            background: #e9ecef;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-left: 8px;
+        }
+
+        .status-bar {
+            background: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #495057;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e9ecef;
+        }
+
+        .status-bar .icon {
+            margin-right: 8px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tool-btn {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .tool-btn:hover {
+            border-color: #e74c3c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(231,76,60,0.10);
+        }
+
+        .tool-btn.active {
+            border-color: #e74c3c;
+            background: #fde8e5;
+        }
+
+        .tool-btn .icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ===== 格式選擇器 ===== */
+        #formatSelector {
+            display: none;
+            margin: 16px 0;
+            padding: 16px 20px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        #formatSelector label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #495057;
+        }
+
+        #formatSelector select {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            min-width: 120px;
+        }
+
+        #formatSelector select:focus {
+            border-color: #e74c3c;
+            outline: none;
+        }
+
+        #formatSelector .hint {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .upload-zone {
+            border: 3px dashed #dde1e6;
+            border-radius: 14px;
+            padding: 40px 20px;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: #e74c3c;
+            background: #fde8e5;
+        }
+
+        .upload-zone .big-icon {
+            font-size: 44px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .upload-zone h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .upload-zone p {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        #fileList {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0;
+        }
+
+        #fileList li {
+            background: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+
+        #fileList .remove {
+            color: #e74c3c;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-convert {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 14px 44px;
+            border-radius: 60px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-convert:hover {
+            background: #c0392b;
+            transform: scale(1.02);
+        }
+
+        .btn-convert:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .center {
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .progress-area {
+            display: none;
+            margin: 16px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar .fill {
+            height: 100%;
+            width: 0%;
+            background: #e74c3c;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 6px;
+        }
+
+        .download-area {
+            display: none;
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 14px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .download-area .check {
+            font-size: 40px;
+            color: #2e7d32;
+        }
+
+        .download-area h3 {
+            color: #2e7d32;
+            margin: 4px 0;
+        }
+
+        .btn-download {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-download:hover {
+            background: #1b5e20;
+            transform: scale(1.02);
+        }
+
+        .footer {
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 12px;
+            margin-top: 30px;
+            padding-top: 16px;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-bar">
+        <div class="logo">
+            🔄 TurnDoc <span>桌面版</span>
+            <span class="version">v1.0</span>
+        </div>
+    </div>
+
+    <div class="status-bar" id="statusBar">
+        <span class="icon">✅</span> 就緒，請選擇工具並上傳檔案
+    </div>
+
+    <div class="section-title">
+        <span>📌 選擇功能</span>
+        <span style="font-size:13px; color:#7f8c8d;" id="selectedTool">尚未選擇</span>
+    </div>
+    <div class="tool-grid" id="toolGrid">
+        <div class="tool-btn" data-tool="word-to-pdf"><span class="icon">📄</span>Word 轉 PDF</div>
+        <div class="tool-btn" data-tool="pdf-to-word"><span class="icon">📝</span>PDF 轉 Word</div>
+        <div class="tool-btn" data-tool="ppt-to-pdf"><span class="icon">📽️</span>PPT 轉 PDF</div>
+        <div class="tool-btn" data-tool="excel-to-pdf"><span class="icon">📊</span>Excel 轉 PDF</div>
+        <div class="tool-btn" data-tool="merge"><span class="icon">🔗</span>合併 PDF</div>
+        <div class="tool-btn" data-tool="compress"><span class="icon">📦</span>壓縮 PDF</div>
+        <div class="tool-btn" data-tool="pdf-to-image"><span class="icon">🖼️</span>PDF 轉圖片</div>
+        <div class="tool-btn" data-tool="image-to-pdf"><span class="icon">📸</span>圖片轉 PDF</div>
+        <div class="tool-btn" data-tool="image-convert"><span class="icon">🔄</span>圖片格式轉換</div>
+        <div class="tool-btn" data-tool="image-compress"><span class="icon">📉</span>圖片壓縮</div>
+    </div>
+
+    <!-- ===== 格式選擇器 ===== -->
+    <div id="formatSelector">
+        <label>📂 輸出格式：</label>
+        <select id="outputFormat">
+            <option value="PNG">PNG</option>
+            <option value="JPG">JPG</option>
+            <option value="WEBP">WEBP</option>
+            <option value="BMP">BMP</option>
+            <option value="GIF">GIF</option>
+            <option value="TIFF">TIFF</option>
+        </select>
+        <span class="hint">選擇轉換後的圖片格式</span>
+    </div>
+
+    <div class="upload-zone" id="uploadZone">
+        <span class="big-icon">📤</span>
+        <h3>拖曳檔案到這裡</h3>
+        <p>或點擊選擇檔案（可選多個）</p>
+        <input type="file" id="fileInput" multiple />
+    </div>
+
+    <ul id="fileList"></ul>
+
+    <div class="center">
+        <button class="btn-convert" id="convertBtn" disabled>
+            ⚡ 開始轉換
+        </button>
+    </div>
+
+    <div class="progress-area" id="progressArea">
+        <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+        <div class="progress-text" id="progressText">處理中...</div>
+    </div>
+
+    <div class="download-area" id="downloadArea">
+        <span class="check">✅</span>
+        <h3>轉換完成！</h3>
+        <button class="btn-download" id="downloadBtn">📥 儲存檔案</button>
+    </div>
+
+    <div class="footer">© 2026 TurnDoc · 離線桌面版 · 檔案不外流</div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
