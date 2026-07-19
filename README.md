@@ -91,7 +91,8 @@
 | 主畫面 | 轉換中 |
 | :---: | :---: |
 | ![主畫面](<img width="1525" height="1036" alt="{399FDFC3-EE99-4DBD-8930-D2200F565179}" src="https://github.com/user-attachments/assets/f67db095-d519-4f5f-a975-42b3029acb87" />
-) | ![轉換中](| ![主畫面]({{6017A114-DA2F-4603-8A1E-61060C99B8A2}.png)|
+) | ![轉換中](| ![主畫面](<img width="1526" height="1038" alt="{0A9C32F4-C16C-4893-ACB1-F5B1D8C26BCB}" src="https://github.com/user-attachments/assets/f562836a-d6ba-4b1a-98dc-f13af6ee9ae7" />
+)|
 
 ---
 
