@@ -1,12 +1,6 @@
 # TurnDoc 文件轉換工具
 
 > Turn. Convert. Done.
-
-[![版本](https://img.shields.io/badge/版本-1.0.1-red.svg)](https://github.com/WillieZhang/TurnDoc/releases)
-[![授權](https://img.shields.io/badge/授權-MIT-blue.svg)](LICENSE)
-[![平台](https://img.shields.io/badge/平台-Windows-0078D6.svg)](https://www.microsoft.com/windows)
-[![下載](https://img.shields.io/badge/下載-安裝檔-brightgreen.svg)](https://github.com/WillieZhang/TurnDoc/releases/latest)
-
 ---
 
 ## 📖 簡介
@@ -46,7 +40,6 @@
 | 圖片格式轉換 | PNG / JPG / WEBP / BMP / GIF 互轉 |
 | 圖片壓縮 | 減小圖片檔案大小 |
 
-
 ---
 
 ## 📸 截圖
@@ -61,7 +54,7 @@
 
 ### 下載安裝檔
 
-👉 **[下載最新版本](https://github.com/willie0712/TurnDoc/releases/latest)**
+👉 **[下載最新版本](https://github.com/Willie0712/TurnDoc/releases/latest)**
 
 ### 安裝步驟
 
@@ -70,10 +63,10 @@
 3. 按照安裝精靈指示完成安裝
 4. 安裝完成後，桌面會出現 TurnDoc 捷徑
 
-### 免安裝版
+### 免安裝版 (Portable)
 
-如果你不想安裝，可以從資料夾中的`win-unpacked`：
-2. 打開資料夾並雙擊 `TurnDoc.exe` 即可使用
+如果你不想安裝，可以從資料夾裡面的 `win-unpacked`：
+2. 雙擊 `TurnDoc.exe` 即可使用
 
 ---
 
@@ -96,6 +89,121 @@
 
 ---
 
+## ❓ 常見問答 (FAQ)
+
+### 1. Q: 我要下載哪個檔案呢？
+
+**A:** 請下載 `TurnDoc-Setup-1.0.1.exe` 這個安裝檔。
+
+> 💡 你可以在 [Releases 頁面](https://github.com/Willie0712/TurnDoc/releases) 找到最新版本的安裝檔。
+
+---
+
+### 2. Q: 檔案是攜便版 (Portable) 還是安裝版？
+
+**A:** 是**安裝版**喔！
+
+| 版本 | 說明 |
+| :--- | :--- |
+| **安裝版** | 下載 `TurnDoc-Setup-1.0.1.exe`，雙擊安裝 |
+| **免安裝版** | 下載 `win-unpacked`，並打開`TurnDoc-Setup-1.0.1.exe`即可使用 |
+
+---
+
+### 3. Q: 請問 EXE 檔案放在哪裡？
+
+**A:** 執行 `npm run build` 打包後，EXE 檔案會放在 `build` 資料夾裡面。
+
+
+---
+
+### 4. Q: 照片轉換可以用什麼格式？
+
+**A:** TurnDoc 支援以下圖片格式：
+
+| 格式 | 說明 |
+| :--- | :--- |
+| JPG / JPEG | 通用格式，檔案較小 |
+| PNG | 支援透明背景 |
+| WEBP | Google 推出，檔案更小 |
+| BMP | 無壓縮格式 |
+| GIF | 支援動畫 |
+| TIFF | 高品質格式 |
+| **HEIC** | ✅ iPhone 照片格式（自動偵測支援） |
+
+> 📱 **跨平台支援**
+> - **Android** 手機：JPG、PNG
+> - **iPhone (iOS)**：JPG、PNG、**HEIC**
+
+---
+
+### 5. Q: 為什麼轉換後檔名有特殊字元？
+
+**A:** 這個問題已經在 v1.0.1 版本修復了！請更新到最新版本。
+
+---
+
+### 6. Q: 需要安裝 Python 才能用嗎？
+
+**A:** ❌ **完全不需要！**
+
+TurnDoc 已經將轉換核心打包成獨立的 `.exe` 檔案，使用者**不需要安裝 Python** 就能直接使用。
+
+---
+
+### 7. Q: 需要安裝 Microsoft Office 嗎？
+
+**A:** ⚠️ 不一定需要。
+
+| 情況 | 說明 |
+| :--- | :--- |
+| 有安裝 Office | ✅ 排版最準確，優先使用 |
+| 沒有安裝 Office | ✅ 自動改用 LibreOffice（免費） |
+| 兩個都沒有 | ❌ 無法轉換，請安裝 LibreOffice |
+
+> 💡 LibreOffice 是免費的，下載網址：https://www.libreoffice.org/
+
+---
+
+### 8. Q: 檔案會上傳到雲端嗎？
+
+**A:** ❌ **不會！**
+
+所有操作都在您的電腦上完成，**檔案不會離開您的電腦**，確保隱私安全。
+
+---
+
+### 9. Q: 支援批次處理嗎？
+
+**A:** ✅ 支援！
+
+大部分功能都支援一次選擇多個檔案進行批次轉換。
+
+---
+
+### 10. Q: 如何回報問題或提出建議？
+
+**A:** 歡迎透過以下方式聯絡我：
+
+- Email: willie.develop467@email.com
+- GitHub: [@WillieZhang](https://github.com/Willie0712)
+
+---
+
+### 11. Q: 未來會支援 Mac 或 Linux 嗎？
+
+**A:** 目前只支援 Windows喔～
+
+---
+
+### 12. Q: 軟體是免費的嗎？
+
+**A:** ✅ **完全免費！**
+
+TurnDoc 是開源軟體，可以放心使用～
+
+---
+
 ## 🔧 開發者資訊
 
 ### 技術架構
@@ -105,41 +213,5 @@
 | 前端 | Electron + HTML + CSS + JavaScript |
 | 轉換核心 | Python + PyInstaller |
 
-
-## 👤 開發者
-
-**Willie Zhang**
-
-- GitHub: [@willie0712](https://github.com/willie0712)
-- Email: willie.develop467@gmail.com
-- 網站: 未來會推出喔~
-
----
-
-## 📧 聯絡與支持
-
-### 回報問題
-如果你發現任何問題，請在gmail寫信給我，同下。
-
-### 功能建議
-如果你有任何功能建議，歡迎透過以下方式告訴我：
-- GitHub Issues: [提交建議](https://github.com/WillieZhang/TurnDoc/issues)
-- Email: wille.develop467@gmail.com
-
-### 技術支援
-- 或直接寄信給我，我會盡快回覆
-
-### 商業合作
-如果有合作需求，歡迎來信洽談。
-
----
-
-## ⭐ 支持
-
-如果這個專案對你有幫助，請給我好評 ⭐
-
-你的支持是我持續開發的動力！
-
----
-
-**TurnDoc** — 讓文件轉換變得簡單 🚀
+👤 開發者
+Willie Zhang
