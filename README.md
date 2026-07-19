@@ -72,9 +72,8 @@
 
 ### 免安裝版
 
-如果你不想安裝，可以下載 `win-unpacked.zip`：
-1. 解壓縮
-2. 雙擊 `TurnDoc.exe` 即可使用
+如果你不想安裝，可以從資料夾中的`win-unpacked`：
+2. 打開資料夾並雙擊 `TurnDoc.exe` 即可使用
 
 ---
 
@@ -84,7 +83,7 @@
 | :--- | :--- |
 | 作業系統 | Windows 7 / 8 / 10 / 11 (64-bit) |
 | 記憶體 | 建議 4GB 以上 |
-| 硬碟空間 | 安裝需要約 300MB |
+| 硬碟空間 | 安裝需要約 396.5MB |
 
 ### 轉換引擎支援
 
@@ -105,20 +104,42 @@
 | :--- | :--- |
 | 前端 | Electron + HTML + CSS + JavaScript |
 | 轉換核心 | Python + PyInstaller |
-| 安裝程式 | NSIS |
 
-### 從原始碼建置
 
-```bash
-# 1. 複製專案
-git clone https://github.com/WillieZhang/TurnDoc.git
-cd TurnDoc
+## 👤 開發者
 
-# 2. 安裝依賴
-npm install
+**Willie Zhang**
 
-# 3. 打包 converter.exe
-python -m PyInstaller --onefile --console --name converter converter.py
+- GitHub: [@willie0712](https://github.com/willie0712)
+- Email: willie.develop467@gmail.com
+- 網站: 未來會推出喔~
 
-# 4. 打包應用程式
-npm run build
+---
+
+## 📧 聯絡與支持
+
+### 回報問題
+如果你發現任何問題，請在 GitHub 上提交 [Issue](https://github.com/WillieZhang/TurnDoc/issues)
+
+### 功能建議
+如果你有任何功能建議，歡迎透過以下方式告訴我：
+- GitHub Issues: [提交建議](https://github.com/WillieZhang/TurnDoc/issues)
+- Email: wille.develop467@gmail.com
+
+### 技術支援
+- 或直接寄信給我，我會盡快回覆
+
+### 商業合作
+如果有合作需求，歡迎來信洽談。
+
+---
+
+## ⭐ 支持
+
+如果這個專案對你有幫助，請給我好評 ⭐
+
+你的支持是我持續開發的動力！
+
+---
+
+**TurnDoc** — 讓文件轉換變得簡單 🚀
