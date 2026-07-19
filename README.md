@@ -119,7 +119,7 @@
 ## 📧 聯絡與支持
 
 ### 回報問題
-如果你發現任何問題，請在 GitHub 上提交 [Issue](https://github.com/WillieZhang/TurnDoc/issues)
+如果你發現任何問題，請在gmail寫信給我，同下。
 
 ### 功能建議
 如果你有任何功能建議，歡迎透過以下方式告訴我：
