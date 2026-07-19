@@ -2,6 +2,11 @@
 
 > Turn. Convert. Done.
 
+[![版本](https://img.shields.io/badge/版本-1.0.1-red.svg)](https://github.com/WillieZhang/TurnDoc/releases)
+[![授權](https://img.shields.io/badge/授權-MIT-blue.svg)](LICENSE)
+[![平台](https://img.shields.io/badge/平台-Windows-0078D6.svg)](https://www.microsoft.com/windows)
+[![下載](https://img.shields.io/badge/下載-安裝檔-brightgreen.svg)](https://github.com/WillieZhang/TurnDoc/releases/latest)
+
 ---
 
 ## 📖 簡介
@@ -44,11 +49,19 @@
 
 ---
 
+## 📸 截圖
+
+| 主畫面 | 轉換中 |
+| :---: | :---: |
+| ![主畫面](https://github.com/user-attachments/assets/f67db095-d519-4f5f-a975-42b3029acb87) | ![轉換中](https://github.com/user-attachments/assets/f562836a-d6ba-4b1a-98dc-f13af6ee9ae7) |
+
+---
+
 ## 🚀 下載與安裝
 
 ### 下載安裝檔
 
-👉 **[下載最新版本](https://github.com/Willie0712/TurnDoc/releases/latest)**
+👉 **[下載最新版本](https://github.com/WillieZhang/TurnDoc/releases/latest)**
 
 ### 安裝步驟
 
@@ -59,7 +72,7 @@
 
 ### 免安裝版
 
-如果你不想安裝，可以從資料夾 `win-unpacked`：
+如果你不想安裝，可以下載 `win-unpacked.zip`：
 1. 解壓縮
 2. 雙擊 `TurnDoc.exe` 即可使用
 
@@ -71,7 +84,7 @@
 | :--- | :--- |
 | 作業系統 | Windows 7 / 8 / 10 / 11 (64-bit) |
 | 記憶體 | 建議 4GB 以上 |
-| 硬碟空間 | 安裝需要約 396.5MB |
+| 硬碟空間 | 安裝需要約 300MB |
 
 ### 轉換引擎支援
 
@@ -81,18 +94,6 @@
 | LibreOffice | 免費替代方案，自動偵測 |
 
 > 💡 如果沒有安裝 Office，TurnDoc 會自動使用 LibreOffice（需自行安裝）
-
----
-
-## 📸 截圖
-
-> *（這裡放 TurnDoc 的截圖）*
-
-| 主畫面 | 轉換中 |
-| :---: | :---: |
-| ![主畫面](<img width="1525" height="1036" alt="{399FDFC3-EE99-4DBD-8930-D2200F565179}" src="https://github.com/user-attachments/assets/f67db095-d519-4f5f-a975-42b3029acb87" />
-) | ![轉換中](| ![主畫面](<img width="1526" height="1038" alt="{0A9C32F4-C16C-4893-ACB1-F5B1D8C26BCB}" src="https://github.com/user-attachments/assets/f562836a-d6ba-4b1a-98dc-f13af6ee9ae7" />
-)|
 
 ---
 
