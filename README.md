@@ -61,7 +61,7 @@
 
 ### 下載安裝檔
 
-👉 **[下載最新版本](https://github.com/WillieZhang/TurnDoc/releases/latest)**
+👉 **[下載最新版本](https://github.com/willie0712/TurnDoc/releases/latest)**
 
 ### 安裝步驟
 
